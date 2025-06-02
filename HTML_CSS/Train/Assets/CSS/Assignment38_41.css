@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+
+div{
+    font-family: sans-serif;
+}
+hr{
+    margin: 20px auto;
+}
+
+.Task1 div{
+    background-color: #eeeeee;
+    width: 100px;
+    height: 100px;
+    border: black solid 3px;
+    float: left;
+    margin: 20px;
+    border-radius: 50%;
+    counter-increment: num1;
+    position: relative;
+    box-shadow: 5px 5px 0 0 #2196f3, -5px -5px 0 0 #e91e63;
+}
+
+.Task1 div::before{
+    content: "Element";
+    position: absolute;
+    top: 35px;
+    left: 20px;
+}
+
+.Task1 div::after{
+    content: counter(num1);
+    position: absolute;
+    background-color: black;
+    color: white;
+    top: -12px;
+    left: 40px;
+    width: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+
+.Task1::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+.Task2 div{
+    background-color: #efefef;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-top-left-radius: 20px 16px;
+    border-top-right-radius: 56px;
+    border-bottom-left-radius: 56px;
+    border-bottom-right-radius: 20px 16px;
+
+
+    -webkit-box-shadow: 0 0 15px 0 black inset;
+    -moz-box-shadow: 0 0 15px 0 black inset;
+    -ms-box-shadow: 0 0 15px 0 black inset;
+    -o-box-shadow: 0 0 15px 0 black inset;
+    box-shadow: 0 0 15px 0 black inset;
+}
+
+
+.Task3{
+    width: 550px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.Task3 .Basic,.Pro{
+    background-color: #eeeeee;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    height: 260px;
+    float: left;
+    position: relative;
+}
+
+.Task3 .Basic p,.Pro p{
+    background-color: #03a9f4;
+    color: #fcfefe;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.Task3 .Basic div, .Pro div{
+    background-color: #dddddd;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.Task3::before{
+    content: "Or";
+    background-color: #03a9f4;
+    color: white;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 135px;
+    left: 230px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+.Task3::after{
+    content: "";
+    background-color: #03a9f4;
+    position: absolute;
+    width: 2px;
+    height: 260px;
+    top: 20px;
+    left: 240px;       
+    z-index: -1;
+}

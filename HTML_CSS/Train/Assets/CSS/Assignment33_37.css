@@ -1,0 +1,92 @@
+hr{
+    margin:30px;
+}
+
+div{
+    font-family: sans-serif;
+}
+
+
+.Task1 div{
+    background-color: #eeeeee;
+    display: flex;
+    margin: auto auto 20px auto;
+    width: 300px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Task1 div:empty{
+    background-color: red;
+}
+
+
+.Task2 div{
+    width: 350px;
+    background-color: #d4d4d4;
+    font-family: sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.Task2 div::first-letter{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-left: -35px;
+    margin-right: 20px;
+}
+
+
+.Task3 p{
+    width: 400px;
+    background-color: #efefef;
+    padding: 20px;
+    margin: 20px auto;
+    border-left: #e91e63 solid 10px;
+    position: relative;
+
+}
+
+.Task3 p::before{
+    content: attr(data-person);
+    background-color: #dddddd;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    padding: 20px;
+    top: 0;
+    left: -140px;
+}
+
+.Task3 p::after{
+    content: "";
+    position: absolute;
+    /* border: #e91e63 solid 10px; */
+    border: solid 15px;
+    border-color: transparent #e91e63 transparent transparent;
+    left: -40px;
+    top: 15px;
+}
+
+
+.Task4 p{
+    background-color: #efefef;
+    padding: 20px;
+    margin: 20px auto;
+    border-right: #f44336 solid 5px;
+    width:500px;
+    position: relative;
+    counter-increment: number;
+}
+
+.Task4 p::before{
+    content:counter(number);
+    position: absolute;
+    background-color: #f44336;
+    padding: 20px;
+    top: 0px;
+    left: -50px;
+}
