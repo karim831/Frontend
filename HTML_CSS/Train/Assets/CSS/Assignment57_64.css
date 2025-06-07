@@ -1,0 +1,184 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+hr{
+  margin: 40px 0;
+}
+
+.Grid{
+  background-color: #ddd;
+  padding: 20px;
+  width: 800px;
+  height: 400px;
+}
+
+.Task1 .Grid{
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(3,1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  margin: 20px auto;
+}
+
+.Task1 .Grid div{
+  background-color: #607d8b;
+  counter-increment: counter;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Task1 .Grid div::before{
+  content: "Element " counter(counter);
+}
+
+
+/* --------------------------------------------------- */
+.Task2 .Layout{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-areas: 
+    "header header header header header header header header header header"
+    "section section section section section section aside aside aside aside"
+    "footer footer footer footer footer footer footer footer footer footer";
+  grid-template-rows: 50px 1fr 50px;
+}
+
+
+.Task2 header{
+  grid-area: header;
+  background-color: #03a9f4;
+  padding: 15px;
+}
+.Task2 header::before{
+  content: "Header";
+}
+
+.Task2 section{
+  grid-area: section;
+  background-color: #ff5722;
+  padding: 15px;
+}
+.Task2 section::before{
+  content: "Section";
+}
+
+.Task2 aside{
+  grid-area: aside;
+  background-color: #607d8b;
+  padding: 15px;
+}
+.Task2 aside::before{
+  content: "Aside";
+}
+
+.Task2 footer{
+  grid-area: footer;
+  background-color: #009688;
+  padding: 15px;
+}
+.Task2 footer::before{
+  content: "Footer";
+}
+
+
+
+/* --------------------------------------------- */
+
+.Task3 .Grid{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto repeat(2,1fr) auto;
+  gap: 20px 20px;
+  margin: 20px auto;
+}
+
+.Task3 .Grid div{
+  background-color: #403f3f;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+/* ---------------------------------------------- */
+
+
+.Task4 .Grid{
+  margin: 20px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  grid-template-rows: repeat(6,1fr);
+  gap: 20px;
+}
+
+.Task4 .Grid div{
+  background-color: #03a9f4;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Task4 .One {
+  grid-area: 6 / 1 / 7 / 11;
+}
+.Task4 .Two {
+  grid-area: 2 / 1 / 3 / 8;
+}
+.Task4 .Three {
+  grid-area: 2 / 8 / 3 / 11;
+}
+.Task4 .Four {
+  grid-area: 3 / 1 / 4 / 4;
+}
+.Task4 .Five {
+  grid-area: 3 / 4 / 6 / 11;
+}
+.Task4 .Six {
+  grid-area: 4 / 1 / 5 / 4;
+}
+.Task4 .Seven {
+  grid-area: 5 / 1 / 6 / 4;
+}
+.Task4 .Eight {
+  grid-area: 1 / 1 / 2 / 11;
+}
+
+
+/* ---------------------------------------------- */
+
+.Task5 .Grid{
+  padding: 20px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  align-content: space-between;
+}
+
+.Task5 .Grid div{
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: #e91e63;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

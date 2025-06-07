@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+}
+
+hr{
+    margin:40px 0;
+}
+
+
+.Task1 div{
+    background-color: #eeeeee;
+    width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 10px; 
+    border-left: 10px solid #f44336;
+    border-right: 10px solid #6639b6;
+    position: relative;
+}
+
+
+.Task1 div::first-letter{
+    color: #f44336;
+}
+
+.Task1 div::before{
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to right,#f44336 0,#f44336 20%,#2196f3 20%,#2196f3 40%,#4bae4f 40%,#4bae4f 60%,#e81d62 60%,#e81d62 80%,#6639b6 80%);
+    width: 600px;
+    height: 10px;
+    top: 0;
+    left: -10px;
+}
+
+.Task1 div::after{
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to right,#f44336 0,#f44336 20%,#2196f3 20%,#2196f3 40%,#4bae4f 40%,#4bae4f 60%,#e81d62 60%,#e81d62 80%,#6639b6 80%);
+    width: 600px;
+    height: 10px;
+    top: 60px;
+    left: -10px;
+}
+
+
+.Task2 .WrapOne, .Task2 .WrapTwo, .Task2 .WrapThree{
+    margin: 20px auto;
+    position: relative;
+}
+
+.Task2 input{
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    width: 600px;
+    padding: 20px;
+    border: none;
+    caret-color: #fb4747;
+    outline: transparent;
+}    
+
+.Task2 .WrapOne::before,.Task2 .WrapTwo::before, .Task2 .WrapThree::before{
+    content: "";
+    background-image: linear-gradient(90deg, #f34437 50%,#029789 50%);
+    position: absolute;
+    width: 600px;
+    height: 5px;
+    top: 52px;
+    left: 0;
+}
+
+.Task2 input:checked{
+    border: solid;
+}
