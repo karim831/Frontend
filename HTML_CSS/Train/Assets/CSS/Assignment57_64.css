@@ -181,4 +181,97 @@ hr{
   display: flex;
   justify-content: center;
   align-items: center;
+} 
+
+
+
+/* ------------------------------------------- */
+
+.Task6{
+  font-family: sans-serif;
+  background-color: #ddd;
+  margin: 20px 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: repeat(8,1fr);
+  grid-template-columns: repeat(12,1fr);
+  gap: 10px 10px;
 }
+.Task6 div{
+  padding: 20px;
+  border-bottom: 5px solid #ff3203;
+  position: relative;
+}
+.Task6 div::before{
+  content: "''";
+  position: absolute;
+  bottom: -35px;
+  right: 0;
+  color: #b3b3b3;
+  font-size: 60px;
+}
+
+.Task6 p{
+  margin-top: 20px;
+}
+.Task6 .p2{
+  font-weight: bold;
+}
+
+.Task6 h4{
+  color: #8b8b8a;
+}
+
+.Task6 .Black{
+  background-color: black;
+  color: white;
+}
+.Task6 .White{
+  background-color: white;
+  color: black;
+}
+
+.Task6 #ShadyNabil{
+  grid-area: 1 / 10 / 7 / 13;
+}
+
+.Task6 #MahmoudMohamed{
+  grid-area: 3 / 4 / 5 / 10;
+}
+
+.Task6 #OsamaMohamed{
+  grid-area: 1 / 1 / 3 / 7;
+}
+
+.Task6 #MohamedIbrahim{
+  grid-area: 3 / 1 / 7 / 4;
+}
+
+.Task6 #EzzEldin{
+  grid-area: 5 / 4 / 7 / 10;
+}
+
+.Task6 #AhmedSayed{
+  grid-area: 1 / 7 / 3 / 10;
+}
+
+.Task6 #MohamedSayed{
+  grid-area: 7 / 1 / 9 / 4;
+}
+
+.Task6 #GamalSayed{
+  grid-area: 7 / 7 / 9 / 10;
+}
+
+.Task6 #IbrahimSayed{
+  grid-area: 7 / 4 / 9 / 7;
+}
+
+.Task6 #EmanSayed{
+  grid-area: 7 / 10 / 9 / 13;
+}
+
+
+
+
+
