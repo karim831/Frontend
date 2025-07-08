@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //  Task1.1
+        function Task11(){
+            var message = prompt("Enter a Message: ");
+            document.writeln("Heading<hr>");
+            for(var i=1;i<=6;i++)
+                document.writeln("<h"+i+">" + message + i + "</h"+i+">");
+        } 
+    
+        // Task1.2
+        function Task12(){
+            var sum = 0;
+            while(sum <= 100){
+                var value = +prompt("Enter The Value To Sum or 0 to Exit: ");
+                while(isNaN(value)){
+                    value = +prompt("Enter Valid Value or 0 to Exit");
+                }
+                if(!value)
+                    break;
+                sum += value;   
+            };
+            console.log("Total Sum is " + sum);
+        }
+
+        //Task2
+        function Task2(){
+            var array = []
+            for(var i=0; i<3; i++){
+                var tmp = +prompt("Enter Number" + i + ": ");
+                while(isNaN(tmp))
+                    prompt("Enter Valid number: ");
+                array[i] = tmp;
+            }
+            document.writeln("Adding -- Multiplying -- dividing 3 values <hr>");
+            document.writeln(
+                "<p style='color:red;display:inline'>Sum of Three Values: </p>" + array[0] + "+" + array[1] + "+" + array[2] + " = " + (array[0] + array[1] + array[2]) + "<br>" 
+                +"<p style='color:red;display:inline'>Multiply of Three Values: </p>" + array[0] + "*" + array[1] + "*" + array[2] + " = " + (array[0] * array[1] * array[2]) + "<br>" 
+                +"<p style='color:red;display:inline'>Div of Three Values: </p>" + array[0] + "/" + array[1] + "/" + array[2] + " = " + (array[0] / array[1] / array[2]) + "<br>" 
+            );
+        }
+
+        //Task3
+        function Task3(){
+            var name = prompt("Enter Image Name: ");
+            var color = prompt("Enter Font Color: ");
+
+
+            document.writeln(
+                `<p style="color:${color}">This is ur image</p>
+            <img src="${name}" alt="" style="border:2px solid ${color}">`
+            );
+        }
+
+        //Task4
+        function Task4(){
+            var array = [10.2,20,34,333.12345];
+            console.log(
+                `
+                ${array[0].toPrecision(9)}
+                ${array[1].toPrecision(9)}
+                ${array[2].toPrecision(9)}
+                ${array[3].toPrecision(9)}
+                `
+            );
+        }
+    </script>
+</body>
+</html>

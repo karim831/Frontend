@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Task4.1
+        function Task41(){
+            var num = prompt("Enter The number: "), initialRadix = parseInt(prompt("Define Initial Radix")), targetRadix = parseInt(prompt("Target Radix"));
+            for(var i =0;i<num.length;i++){
+                if(num[i] >= initialRadix)
+                    return "Invalid Number";
+            }
+
+            return parseInt(parseInt(num,initialRadix),targetRadix);
+        }
+        // Task4.4
+        function Task44(){
+            var t1 = new Number(10); 
+            var t2 = new Number(10); 
+            console.log(t1 == t2); // false => different object;
+
+            console.log([1,2,3] == [1,2,3]); //false => different object;
+
+        }
+
+        // Task6
+        function Task6(){
+            var arr = [1,2,3,4,5,6,8,9,10],sum = 0;
+            document.writeln("<table border=''><tr><th>Values</th></tr>");
+            for(var i=0; i<arr.length;i++){
+                sum += arr[i];
+                if(i % 2)
+                    document.writeln("<tr><td style='background-color: red'>"+arr[i]+"</td></tr>");
+                else
+                    document.writeln("<tr><td style='background-color: green'>"+arr[i]+"</td></tr>");
+            }
+            document.writeln("<tr><th>Sumition = "+sum+"</th></tr></table>");
+        }
+    </script>
+</body>
+</html>
