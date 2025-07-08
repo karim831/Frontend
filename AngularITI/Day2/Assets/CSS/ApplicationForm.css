@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.container{
+    padding: 20px;
+    padding-left: 145px;
+}
+
+
+/* ------------------------------ */
+
+:root{
+    --secondary-font-color:#959595;
+    --main-font-color:#383c3e;
+    --decoration-color:#008f17;
+}
+
+
+/* ------------------------------ */
+
+.header{
+    background-color: #f9f9f9;
+}
+
+.header .container{
+    display: flex;
+}
+
+.header .logo{
+    color: var(--secondary-font-color);
+    letter-spacing: 3px;
+    flex-basis: 360px;
+}
+
+.header .links{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.header .links ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.header .links li{
+    color: var(--main-font-color);
+    position: relative;
+}
+
+.header .links li:last-child::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 86px;
+    height: 2px;
+    background-color: var(--decoration-color);
+}
+
+/* -------------------- */
+
+.contact-us .container{
+    padding-top: 100px;
+}
+
+.contact-us h1{
+    color: var(--main-font-color);
+    margin-bottom: 30px;
+}
+
+.contact-us p{
+    color: var(--secondary-font-color);
+    width: 510px;
+}
+/* -------------------- */
+.form{
+    color: var(--main-font-color);
+}
+
+.form .container{
+    width: 700px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction:column;
+}
+
+.form .written-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.form .written-section input{
+    margin-bottom: 50px;
+    border: none;
+    border-bottom: 2px solid #737b7d;
+    line-height: 40px;
+    padding-left: 20px;   
+    outline-style: none;
+    transition: .3s;
+}
+
+.form .written-section input:hover{
+    border-bottom-color: var(--decoration-color);
+    padding-bottom: 5px;
+}
+
+.form .written-section > input:first-child::placeholder{
+    color: var(--main-font-color);
+}
+
+.form .written-section .address{
+    display: flex;
+    gap: 20px;
+}
+
+.form .written-section .address input:first-child{
+    flex-basis: 310px;
+}
+
+.form .file-section{
+    margin-bottom: 40px;
+    color:var(--secondary-font-color);
+}
+
+.form .file-section label{
+    display: block;
+    width: 100%;
+    padding: 40px;
+    margin-bottom: 20px;
+    border: 2px dashed var(--secondary-font-color);
+    text-align: center;
+}
+
+.form .file-section input{
+    display: none;
+}
+
+.form .file-section p{
+    font-size: 10px;
+}
+
+
+.form button{
+    display: block;
+    background-color: var(--decoration-color);
+    color: white;
+    width: 100%;
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: none;
+}
