@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        .container{
+            width: 1000px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .container,.buttons{
+            padding: 20px;
+            border: 3px solid black;
+        }
+
+        .image-wrapper{
+            height: 500px;
+            margin-bottom: 20px;
+        }
+        .image-wrapper img{
+            height: 100%;
+        }
+
+        .buttons button{
+            width: 100px;
+            margin: 0 20px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .buttons button:focus{
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-wrapper"><img src="./Images/1.png" id="myImg"></div>
+        <div class="buttons">
+            <button onclick="start()">Start</button>
+            <button onclick="next()">Next</button>
+            <button onclick="prev()">Prev</button>
+            <button onclick="stop()">Stop</button>
+        </div>
+    </div>
+    <script>
+        var images = ['Images/1.png','Images/2.png','Images/3.png','Images/4.png','Images/5.png','Images/6.png'];
+        var nextImage = 1;
+        var imgHandler; 
+        function start(){
+            imgHandler = setInterval('changeImage(true)',2000);
+        }
+        function changeImage(bool){
+            if(bool){
+                myImg.src = images[nextImage++];
+                nextImage %=  images.length;
+            }
+            else{
+                myImg.src = images[nextImage--];
+                nextImage = nextImage < 0 ? images.length-1 : nextImage;
+            }
+        }
+        function next(){
+            changeImage(true);
+        }
+        function prev(){
+            changeImage(false);
+        }
+        function stop(){
+            if(imgHandler)
+                clearInterval(imgHandler);
+        }
+
+
+    </script>
+</body>
+</html>

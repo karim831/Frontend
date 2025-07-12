@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function welcome(){
+            const fields = location.search.substring(1).split('&');
+            if(fields[2].split('=')[1] === "Male")
+                document.write('<img src="Images/Male.png">Welcome ' + fields[0].split('=')[1]);
+            else
+                document.write('<img src="Images/Female.png">Welcome ' + fields[0].split('=')[1]);
+        }
+
+        welcome();
+    </script>
+</body>
+</html>

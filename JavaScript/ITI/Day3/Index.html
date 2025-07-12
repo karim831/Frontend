@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+            function Task1(){
+                var input = prompt("Enter array of numbers each number sperated by ','");
+                return  input.split(',').reduce((p,c) => parseInt(p) + parseInt(c));
+            }
+
+            function Task2(){
+                var input = prompt("Enter array of numbers each number sperated by ','").split(',').map(s => parseInt(s));
+                var repeated = {};
+                for(var i=0;i<input.length;i++){
+                    if(!repeated[input[i]]){
+                        var indexes = []
+                        for(var j=i+1;j<input.length;j++){
+                            if(input[i] === input[j])
+                                indexes.push(j); 
+                                
+                        }
+                        if(indexes.length > 0)
+                            repeated[input[i]] = indexes;
+                    }
+                }
+                console.log(repeated);
+                document.write(`<table style="border: 3px solid red;"><tr><th>Values</th></tr>`);
+                input.forEach(i => {
+                    document.write(`<tr><td>${i}</td></tr>`);
+                });
+                document.write(`</table>`);
+                
+                for(var i in repeated){
+                    document.write(`<h3>Value ${i} repeated in rows ${repeated[i].join(' - ')}</h3>`);
+                }
+            }
+
+            function Task3(){
+                var name,number;
+                do{
+                    name = prompt("Enter Valid Name 'a-z' | 'A-Z' :");
+                }while(!(function(name){
+                    var tmp = name.toLowerCase();
+                    for(var i=0;i<tmp.length;i++){
+                        if(tmp[i] < 'a' ||  tmp[i] > 'z'){
+                            return false;
+                        }
+                    }
+                    return true;
+                })(name));
+                do{
+                    number = prompt("Enter Valid Phone Numbe in Format 'xxx-xxxxxxxx' 11 number:");
+                }while(!(function(number){
+                    var arr = number.split('-');
+                    console.log(arr);
+                    if(
+                        arr.length === 2 &&
+                        arr[0].length + arr[1].length === 11 &&
+                        ['010','011','012','015'].includes(arr[0])
+                    ){
+                        return true;
+                    }
+                    return false;
+                })(number));
+            }
+
+            function Task4(){
+                var arr = [[1,2,3],[4,5,6]];
+
+                document.write(`<table border=""><tr>`);
+                for(var i=0;i<arr[0].length;i++)
+                    document.write(`<th>ST${i}</th>`);
+                document.write('<th>Sum</th></tr>');
+
+                var students = {};
+                for(var i=0;i<arr.length;i++){
+                    var sum = 0;
+                    document.write(`<tr>`);
+                    for(var j=0;j<arr[0].length;j++){
+                        document.write(`<td>${arr[i][j]}</td>`);
+                        sum += arr[i][j];
+                        if(!students[j])
+                            students[j] = arr[i][j];
+                        else
+                            students[j] += arr[i][j];
+                    }
+                    document.write(`<td>${sum}</td></tr>`);
+                }
+                document.write("<tr>");
+                for(var p in students)
+                    document.write(`<td>${students[p]/arr.length}</td>`);
+                document.write("</tr>")
+            }
+
+
+            function Task5(){
+                var string = prompt("Enter the string!");
+                return string.split(' ').map(s => s[0].toUpperCase() + s.substring(1)).reduce((p,c) => p +' '+ c);
+            }
+
+            function Task6(){
+                while(1){
+                    var arr; 
+                    do{
+                        arr = prompt("Enter array with valid format '1, 2, ... :").split(',').map(s => s.trim());
+                    }while(!(function(arr){
+                        for(var i=0;i<arr.length;i++){
+                            var tmp = +arr[i];
+                            if(arr[i] !== '' || tmp)
+                                arr[i] = tmp;
+                            else
+                                return false;
+                        }
+                        return true;
+                    })(arr));
+                }
+            }
+
+
+
+
+    </script>
+</body>
+</html>

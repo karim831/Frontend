@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: green;
+        }
+        .container{
+            width: 500px;
+            margin-left: 20px;
+            background-color: yellow;
+        }
+
+        p,hr{
+            color: green;
+        }
+        
+        hr{
+            margin: 50px 0;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <p id="origin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iste voluptatibus doloribus illum assumenda dolor minima alias qui culpa ad possimus itaque aut nisi rerum quaerat, magnam quas asperiores aliquam! Doloremque, dolorem quos autem repellat dicta, explicabo adipisci nesciunt molestias, temporibus suscipit corrupti quam hic dolore iure! Voluptatem delectus quod cumque iure vel a blanditiis dolore exercitationem. In ipsam ut voluptas est nulla animi, ratione nostrum blanditiis tempore vel eius sunt dicta aliquam quos harum atque magni voluptatibus ea mollitia vitae at. Asperiores ullam molestias nihil rerum saepe officia, fuga sequi molestiae optio enim consectetur, recusandae doloribus perspiciatis voluptas in!</p>
+    </div>
+
+
+    <script>
+        const origin = document.getElementById("origin");
+        const container = document.getElementById("container");
+        for(var i=0;i<10;i++){
+            container.appendChild(document.createElement("hr"));
+            container.appendChild(origin.cloneNode(true));
+        }
+
+        function autoScroll(){
+            scrollBy(0,100);
+        }
+        setInterval("autoScroll()",500);
+        
+    </script>
+</body>
+</html>
