@@ -22,20 +22,19 @@ function Task2(string){
 
 function Task3(sentence,oldWord,newWord){
     let s = String(sentence),ow = String(oldWord), nw = String(newWord);
-
-    let arr = s.split(ow),output = "";
-    console.log(arr);
-    if(s.indexOf(ow) == 0)
-        output += nw;
-    for(let i=0;i<arr.length;i++){
-        output += arr[i];
-        if(i != arr.length-1)
+    let output = "";
+    for(let i=0;i<s.length;i++){
+        let sub = s.substring(i,i+nw.length);
+        if(sub === ow){
             output += nw;
+            i += nw.length-1;
+        }
+        else{
+            output += s[i];
+        }
     }
-    if(s.lastIndexOf(ow) == s.length-1)
-            output += nw;
     return output;
-}
+}   
 
 
 // Extract the first letter of each word in a sentence
