@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button,img{
+            margin-bottom: 20px;
+        }
+        h3{
+            width: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h3></h3>
+
+    <img src="./Images/1.png" id="img"><br>
+    <input type="text" id="msgButton" value="Enter Message To Dispaly">
+    <button onclick="displayMessage()">Dispaly message</button><br>
+
+    <button onclick="changeBackground()">Change Background</button>
+
+    <script>
+        let welcomeShowed = false;
+        document.addEventListener("mousemove",() =>{
+            if(!welcomeShowed){
+                alert("Welcome To Our Page!");
+                welcomeShowed = true;
+            }
+        });
+
+        let colors = ["white","red","green","blue","yellow","orange"];
+        let colorIndex = 1;
+
+        timeCounter();
+        setInterval(timeCounter,1000);
+
+        let images = ["1.png","2.png","3.png","4.png","5.png","6.png"];
+        let imageIndex = 1;
+        setInterval(imageCounter,2000);
+
+        function displayMessage(){
+            alert(document.getElementById("msgButton").value);
+        }
+
+        function changeBackground(){
+            colorIndex %= colors.length;
+            document.body.style.backgroundColor = colors[colorIndex++];
+        }
+
+        function timeCounter(){
+            document.getElementsByTagName("h3")[0].innerText = new Date().toLocaleTimeString();
+        }
+
+        function imageCounter(){
+            imageIndex %= images.length;
+            document.getElementById("img").src = "./Images/" + images[imageIndex++];
+        }
+
+
+
+
+    </script>
+</body>
+</html>
