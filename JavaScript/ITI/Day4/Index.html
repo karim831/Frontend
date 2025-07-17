@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function task1(numbers){
+            if(!Array.isArray(numbers))
+                throw new TypeError("Expected an Array");
+            
+            if(!numbers.every(n => typeof n === "number"))
+                throw new TypeError("Expected Number Elements");
+
+            while(1){
+                let orderObj = {
+                    a(){return numbers.map(n => n);},
+                    b(){return this.a().sort((a,b) => a -b);},
+                    c(){return this.a().sort((a,b) => b - a)},
+                    d(){return this.a().reverse()},
+                    e(){
+                        let evenNumbers = numbers.filter(n => n%2 == 0);
+                        return evenNumbers.length != 0 ? evenNumbers : "No Even Numbers!";
+                    },
+                    f(number){ 
+                        let divisbleNumbers = numbers.filter(n => n % number == 0);
+                        return divisbleNumbers.length != 0 ? divisbleNumbers : "No Divisable Number!";
+                    },
+                    g(){return numbers.map(n => n * .3);},
+                    h(){return numbers.reduce((p,c) => p + "***" + c);}
+                }; 
+                
+                let orderPrompt = prompt(
+                    "Enter the following letters:\n" +
+                    "a:to display array with same reciving order\n" +
+                    "b:to display array with ascending order\n" +
+                    "c:to display array with descending order\n" +
+                    "d:to reversed version of original array\n" +
+                    "e:to display even numbers only from array, if there no even I'll Inform You!\n" +
+                    "f:dispaly all numbers divisble given number, if no I'll Inform You!\n" +
+                    "g:display new array with 30% discount for all numbers in original array\n"+
+                    "h:display string which all numbers of array concatenated with '***'\n"
+                )
+
+                if(orderPrompt){
+                    if(orderPrompt.toLowerCase() === "f"){
+                        let number;
+                        while(!(number = parseInt(prompt("Enter the number"))));
+                        alert("Output :\n" + orderObj["f"](number));
+                    }
+                    else
+                        alert("Output :\n" + orderObj[orderPrompt.toLowerCase()]());
+                }
+                if(prompt("Enter cancel for END or OK for end: ") === null)
+                    return alert("Good Bye :D");
+            }
+        }
+
+
+
+        function task2(){
+            let arr = ["ahmed","ali","moustafa","ibrahim","alaa","hamada"];
+            let nameIndex1 = Math.floor(Math.random() * arr.length);
+            let nameIndex2 = Math.floor(Math.random() * arr.length);
+            document.write(arr[nameIndex1] + " " + arr[nameIndex2] + "<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
