@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        :root{
+            --main-color: #5b9ad4;
+            --header-spans-color: #febf01;
+            --question-color:#f8cbad;
+            --font-color:#fae8d6;
+
+        }
+
+        *{
+            padding: 0;
+            margin: 0;
+            color: var(--font-color);
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+
+        .header {
+            background-color: var(--main-color);
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header span{
+            margin: 0 100px;
+            background-color: var(--header-spans-color);
+            
+        }
+
+        .content{
+            background-color: var(--main-color);
+            padding: 20px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .content > p,span,li{
+            background-color: var(--question-color);    
+            padding: 20px;
+            margin-bottom: 20px;
+        }   
+
+
+        .content p{
+            margin-bottom: 100px;
+        }
+
+        .content span{
+            position: absolute;
+            top: 20px;
+            right: 200px;
+        }
+
+        .content li{
+            margin: 20px 0;
+        }
+
+        .content li:hover{
+            background-color: #DDD;
+        }
+
+
+        .footer{
+            background-color: var(--main-color);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer button{
+            background-color: transparent;
+            border: none;
+        }
+
+        .footer button:hover{
+            background-color: #DDD;
+            border-radius: 10%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="content">
+        <p></p>
+        <span></span>
+        <ul></ul>
+    </div>
+    <div class="footer">
+        <button>Prev</button>
+        <button>Next</button>
+    </div>
+    <script>
+        let index = 1;
+        let courseObj = {
+        Name: "JS",
+        Duration: "120000",
+            Questions: [
+                {
+                    QTitle: "What's your name ?",
+                    QDegree: 20,
+                    QAnswers: ["Ahmed","Mohamed","Mamdouh","Nasr"]
+                },
+                {
+                    QTitle: "Which programming language do you prefer ?",
+                    QDegree: 30,
+                    QAnswers: ["JS","C#","C"]
+                }
+            ]
+        }
+
+
+
+        window.addEventListener("load",() => {
+            let spanCollection = document.getElementsByClassName("header")[0].getElementsByTagName("span");
+            spanCollection[0].innerText = "Welcome: " + location.search.substr(1).split("=")[1];
+            spanCollection[1].innerText = "ExamName: " + courseObj.Name;
+            spanCollection[2].innerText = "Duration: " + Math.floor(courseObj.Duration / 1000); 
+            setInterval(examTimer,1000,spanCollection[2]);
+            nextQeustion();
+            
+            // Events
+            document.getElementsByClassName("content")[0].getElementsByTagName("ul")[0].addEventListener("click",(e) => {
+                if(e.target.nodeName === "LI"){
+                    document.querySelectorAll(".content ul li").forEach(li => {
+                        li.style.backgroundColor = "";
+                    });
+
+                    e.target.style.backgroundColor = "#DDD";
+                }
+            });
+
+            document.getElementsByTagName("button")[1].addEventListener("click",() => {
+                nextQeustion();
+            });
+
+            document.getElementsByTagName("button")[0].addEventListener("click",() => {
+                prevQuestion();
+            });
+
+
+        });
+
+        function examTimer(span){
+            courseObj.Duration -= 1000;
+            if(courseObj.Duration <= 0){
+                alert("Exam Finished");
+                location.replace("/Login.html");
+            }
+            span.innerText = "Duration: " + Math.floor(courseObj.Duration / 1000);
+        }
+
+
+        function nextQeustion(){
+            if(index >= courseObj.Questions.length)
+                return;
+            let contentChildren = document.getElementsByClassName("content")[0].children;
+            contentChildren[0].innerText = courseObj.Questions[index].QTitle;
+            contentChildren[1].innerText = courseObj.Questions[index].QDegree;
+
+            
+            while(contentChildren[2].children.length)
+                contentChildren[2].children[0].remove();
+
+
+            courseObj.Questions[index].QAnswers.forEach((answer) => {
+                let li = document.createElement("li");
+                li.innerText = answer;
+                contentChildren[2].appendChild(li);
+            });
+            index++;
+        }
+
+
+        function prevQuestion(){
+            if(!(index-1))
+                return;
+            index--;
+            let contentChildren = document.getElementsByClassName("content")[0].children;
+            contentChildren[0].innerText = courseObj.Questions[index-1].QTitle;
+            contentChildren[1].innerText = courseObj.Questions[index-1].QDegree;
+
+            
+            while(contentChildren[2].children.length)
+                contentChildren[2].children[0].remove();
+
+
+            courseObj.Questions[index-1].QAnswers.forEach((answer) => {
+                let li = document.createElement("li");
+                li.innerText = answer;
+                contentChildren[2].appendChild(li);
+            });
+        }
+
+
+
+        
+        
+
+    </script>
+</body>
+</html>

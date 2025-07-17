@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            margin: 20px auto;
+            border: 5px solid black;
+        }
+
+        .header input{
+            width: 90%;
+        }
+        table tr{
+            margin-bottom: 20px;
+        }
+        table th,table td{
+            margin-right: 20px;
+        }
+        table th:not(:first-child),
+        table td:not(:first-child){
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" id="input">
+            <button onclick="addNew()">Add</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>News</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button onclick="countRows(this)">Count Rows</button>
+    </div>
+    <script>
+        let input = document.getElementById("input");
+        let tbody = document.querySelector("table tbody");
+        function addNew(){
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            
+            td1.innerText = tbody.children.length > 0 ? parseInt(tbody.children[tbody.children.length-1].children[0].innerText) + 1 : "1";
+            td2.innerText = input.value;
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tbody.appendChild(tr);
+        }
+
+        function countRows(e){
+            let p;
+            if(!(p = document.querySelector(".container > p")))
+                p = document.createElement("p");
+
+            p.innerText = tbody.childElementCount;
+            document.querySelector(".container").appendChild(p);
+        }
+    </script>
+</body>
+</html>
