@@ -6,9 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/Exam.html">
-        <input type="text" name="username" placeholder="Enter your username">
-        <input type="submit">
-    </form>    
+    <input type="button" value="clickMe" onclick="myfun(this)">
+
+    <script>
+        function myfun(element){
+            console.log(element.value);
+        }
+    </script>
+
+    
 </body>
 </html>
