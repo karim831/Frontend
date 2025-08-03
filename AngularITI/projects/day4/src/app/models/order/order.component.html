@@ -1,0 +1,11 @@
+<select class="form-select" aria-label="Default select example" [(ngModel)]="categorySelected">
+  <option [ngValue]="0" selected>All</option>
+  @for (category of categories; track category.id) {
+    <option [ngValue]="category.id">{{category.name}}</option>
+  }
+</select>
+
+<app-products [catId]="categorySelected" (calculatedPrice)="assignTotalPrice($event)"></app-products>
+
+<h1>The Total price : {{totalPrice | currency: 'EGP' : 'symbol' : '1.2-6'}}</h1>
+

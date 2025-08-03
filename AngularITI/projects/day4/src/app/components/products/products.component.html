@@ -1,0 +1,57 @@
+<h2 style="margin:20px auto;width: 500px;text-align: center;">{{today | date: 'E MMM d h:m a'}}</h2>
+
+<div style="margin: 20px auto;width: 200px;">
+  <label for="i1">yellow</label>
+  <input type="radio" id="i1" name="input" (click)="changeMouseOverColor('yellow')">
+  <span style="margin-right: 20px;"></span>
+  <label for="i2">red</label>
+  <input type="radio" id="i2" name="input" (click)="changeMouseOverColor('red')">
+  <span style="margin-right: 20px;"></span>
+  <label for="i3">pink</label>
+  <input type="radio" id="i3"  name="input" (click)="changeMouseOverColor('pink')">
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for (product of filteredProducts; track product.id) {
+      @if (product.quantity > 0) {
+        <!-- <div class="col"
+          [ngClass]="(product.catId !== categorySelected) ? 'd-none' : ''"> -->
+        <div class="col">
+          <div class="card">   
+            <img [src]="product.imgUrl" class="card-img-top" alt="...">
+            <!-- <div class="card-body" [ngStyle]="{'background-color': (product.quantity === 1) ? 'red' : ''}" [appHighlightcard]="cardColors"> -->
+            <div class="card-body" [appHighlightcard]="cardColors">
+              <h3 class="card-title">{{product.name}}</h3>
+              <p class="card-text">The price: {{product.price | currency: 'EGP' : 'symbol' : '1.2-6'}}</p>
+              @switch (product.quantity) {
+                @case (1) {
+                  <p class="card-text">The quantity: LastItem</p>
+                }
+                @case (2) {
+                <p class="card-text" >The quantity: LastTwoItem</p>
+                }
+                @default {
+                  <p class="card-text">The quantity: {{product.quantity}}</p>
+                }
+              }
+              <div class="input-group mb-3">
+                  <span class="input-group-text">EGP</span>
+                  <span class="input-group-text">{{product.tmpTotalPrice || "0.00"}}</span>
+                  <input type="number" class="form-control" min="1"
+                  [(ngModel)]="product.tmpTotalQuantity"
+                  (input)="updateTempPrice(product)">
+                  <button class="btn btn-primary"
+                    (click)="buy(product)">
+                    Buy
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    }
+</div>
+
+<!-- <p ngNonBindable>{{1+1}}</p> -->
+<!-- <h2>{{num | square : "karim"}}</h2> -->
