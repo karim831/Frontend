@@ -3,12 +3,10 @@ import { IProduct } from '../../models/iproduct';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { HighlightcardDirective } from '../../directives/highlightcard.directive';
-import { SquarePipe } from '../../pips/square.pipe';
-
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule,FormsModule,HighlightcardDirective,SquarePipe],
+  imports: [CommonModule,FormsModule,HighlightcardDirective],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })

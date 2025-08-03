@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
-import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { OrderComponent } from './models/order/order.component';
+import { OrderComponent } from '../../../day4/src/app/components/order/order.component';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +10,5 @@ import { OrderComponent } from './models/order/order.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'day3';
+  title = 'day4';
 }
