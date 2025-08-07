@@ -1,0 +1,62 @@
+    <!-- Start Footer -->
+    <footer>
+        <div class="container">
+            <div class="box">
+                <h2>Hostrio</h2>
+                <div class="social">
+                    @for (item of socialBox; track $index) {
+                        <i [class]="item"></i>
+                    }
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus nulla rem, dignissimos iste aspernatur</p>
+            </div>
+            <div class="box">
+                <ul class="links">
+                    @for (link of [1,2,3,4,5]; track $index) {
+                        <li><a style="cursor: pointer;">Important Link {{link}}</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="box">
+                <div class="info">
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <p>Egypt, Giza, Inside The Sphinx, Room Number 220</p>
+                </div>
+                <div class="info">
+                    <i class="fas fa-clock fa-fw"></i>
+                    <p>Business Hours: From 10:00 To 18:00</p>
+                </div>
+                <div class="info">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="phone">
+                        <p>+20123456789</p>
+                        <p>+20123456878</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="foot">
+                    <img src="./assets/images/gallery-01.png" alt="">
+                </div>
+                <div class="foot">
+                    <img src="./assets/images/gallery-02.png" alt="">
+                </div>
+                <div class="foot">
+                    <img src="./assets/images/gallery-03.jpg" alt="">
+                </div>
+                <div class="foot">
+                    <img src="./assets/images/gallery-04.png" alt="">
+                </div>
+                <div class="foot">
+                    <img src="./assets/images/gallery-05.jpg" alt="">
+                </div>
+                <div class="foot">
+                    <img src="./assets/images/gallery-06.png" alt="">
+                </div>
+            </div>
+        </div>
+        <p class="foot">
+            Made With &lt;3 By Mostafa
+        </p>
+    </footer>
+    <!-- End Footer -->

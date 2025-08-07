@@ -1,0 +1,20 @@
+<!-- Start Articles -->
+    <div class="articles" id="articles">
+        <h2 class="main-title">
+            {{title}}
+        </h2>
+        <div class="container">
+            @for (article of articles; track $index) {
+                <div class="box">
+                    <img decoding="async" [src]="'./assets/images/'+article.image" alt="">
+                    <div class="content">
+                        <h3>{{article.title}}</h3>
+                        <p>{{article.description}}</p>
+                    </div>
+                    <div class="info">
+                        <a style="cursor: pointer;">Read More</a>
+                        <i [class]="article.icon"></i>
+                    </div>
+                </div>
+            }
+    <!-- End Articles -->

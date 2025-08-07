@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ICategory } from '../icategory';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from '../../components/products/products.component';
 import { CommonModule } from '@angular/common';
+import { ICategory } from '../../models/icategory';
 
 @Component({
   selector: 'app-order',

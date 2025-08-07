@@ -1,0 +1,29 @@
+<header>
+    <div class="container">
+        <a href="#" class="logo">Hostrio</a>
+        <ul class="list-nav">
+            @for (item of ['articles','gallery','features']; track $index) {
+                <li><a [appScrollTo]="item">{{item[0].toUpperCase() + item.substring(1)}}</a></li>
+            }
+            <li>
+                <a>Other Links</a>
+                <!-- Start Megamenu -->
+                <div class="mega-menu">
+                    <div class="image">
+                        <img decoding="async" [src]="'./assets/images/'+image"/>
+                    </div>
+                    @for (group of megaMenuGroups; track $index) {
+                        <ul class="links">
+                            @for (link of group; track $index) {
+                                <li>
+                                    <a><i [class]="link.icon"></i>{{link.text}}</a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+                <!-- End Megamenu -->
+            </li>
+        </ul>
+    </div>
+</header>

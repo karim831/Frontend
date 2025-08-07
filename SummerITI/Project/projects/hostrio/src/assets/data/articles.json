@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art1.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 2,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art2.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 3,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art3.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 4,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art4.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 5,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art5.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 6,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art6.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 7,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art7.webp",
+    "readMoreUrl": "#"
+  },
+  {
+    "id": 8,
+    "title": "Test Title",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit",
+    "image": "images/art8.webp",
+    "readMoreUrl": "#"
+  }
+]
