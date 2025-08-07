@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollService } from '../../core/services/scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   image:string = "mega-menu.png";
-  
+
   megaMenuGroups = [
     [
       { icon: 'far fa-comments fa-fw', text: 'Testimonials', href: 'testimonials' },
@@ -26,5 +27,5 @@ export class HeaderComponent {
     ]
   ];
 
-
+  constructor(){}
 }

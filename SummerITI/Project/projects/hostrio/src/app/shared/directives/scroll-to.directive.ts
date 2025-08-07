@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, HostListener, Inject, Input } from '@angular/core';
+import { ScrollService } from '../../core/services/scroll.service';
+import { Router } from '@angular/router';
 
 @Directive({
   selector: '[appScrollTo]',
@@ -7,9 +9,12 @@ import { Directive, ElementRef, HostListener, Inject, Input } from '@angular/cor
 })
 export class ScrollToDirective {
   @Input() appScrollTo:string = "";
+  @Input() targetRoute:string = "";
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private element:ElementRef
+    private scrollService:ScrollService,
+    private element:ElementRef,
+    private router:Router
   ) {}
 
   @HostListener('mouseenter')
@@ -19,9 +24,6 @@ export class ScrollToDirective {
 
   @HostListener('click')
   onClick(){
-    let e = this.document.getElementById(this.appScrollTo);
-    e?.scrollIntoView({
-      behavior:'smooth'
-    })
+    this.scrollService.scrollTo(this.appScrollTo,this.targetRoute);
   }
 }

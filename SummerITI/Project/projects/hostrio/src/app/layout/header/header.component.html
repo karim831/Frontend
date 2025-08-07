@@ -1,9 +1,9 @@
 <header>
     <div class="container">
-        <a href="#" class="logo">Hostrio</a>
+        <a class="logo">Hostrio</a>
         <ul class="list-nav">
             @for (item of ['articles','gallery','features']; track $index) {
-                <li><a [appScrollTo]="item">{{item[0].toUpperCase() + item.substring(1)}}</a></li>
+                <li><a [appScrollTo]="item" targetRoute="/home">{{item[0].toUpperCase() + item.substring(1)}}</a></li>
             }
             <li>
                 <a>Other Links</a>
