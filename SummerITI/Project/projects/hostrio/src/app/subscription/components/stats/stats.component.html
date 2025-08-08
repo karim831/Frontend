@@ -1,27 +1,14 @@
 <!-- Start stats -->
 <div class="stats" id="stats">
-    <h2>Our Awesome Stats</h2>
+    <h2>{{title}}</h2>
     <div class="container">
-        <div class="box">
-            <i class="fas fa-user fa-2x fa-fw"></i>
-            <span class="number">150</span>
-            <span class="text">Clients</span>
-        </div>
-        <div class="box">
-            <i class="fas fa-code fa-2x fa-fw"></i>
-            <span class="number">135</span>
-            <span class="text">Projects</span>
-        </div>
-        <div class="box">
-            <i class="fas fa-globe-asia fa-2x fa-fw"></i>
-            <span class="number">50</span>
-            <span class="text">Countries</span>
-        </div>
-        <div class="box">
-            <i class="far fa-money-bill-alt fa-2x fa-fw"></i>
-            <span class="number">500</span>
-            <span class="text">Money</span>
-        </div>
+        @for (stat of stats; track $index) {
+            <div class="box">
+                <i [class]="stat.icon"></i>
+                <span class="number">{{stat.number}}</span>
+                <span class="text">{{stat.stat}}</span>
+            </div>
+        }
     </div>
 </div>
 <!-- End stats -->

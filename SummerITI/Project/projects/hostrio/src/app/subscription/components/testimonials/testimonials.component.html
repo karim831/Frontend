@@ -1,103 +1,25 @@
 <!-- Start Testimonials -->
 <div class="testimonials" id="testimonials">
-    <h2 class="main-title">Testimonials</h2>
+    <h2 class="main-title">{{title}}</h2>
     <div class="container">
-        <div class="box">
-            <img decoding="async" src="./assets/images/avatar-01.png" alt="" />
-            <h3>Mohamed Farag</h3>
-            <span class="title">Full Stack Developer</span>
-            <div class="rate">
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="far fa-star"></i>
+        @for (testimonial of testimonials; track $index) {
+            <div class="box">
+                <img decoding="async" [src]="'./assets/images/'+testimonial.img"/>
+                <h3>{{testimonial.name}}</h3>
+                <span class="title">{{testimonial.job}}</span>
+                <div class="rate">
+                    @for (index of [1,2,3,4,5]; track $index) {
+                        @if(testimonial.filledStars >= index){
+                            <i class="filled fas fa-star"></i>
+                        }
+                        @else {
+                            <i class="far fa-star"></i>
+                        }
+                    }
+                </div>
+                <p>{{testimonial.comment}}</p>
             </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-                quaerat ducimus
-            </p>
-        </div>
-        <div class="box">
-            <img decoding="async" src="./assets/images/avatar-02.png" alt="" />
-            <h3>Mohamed Ibrahim</h3>
-            <span class="title">Full Stack Developer</span>
-            <div class="rate">
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-                quaerat ducimus
-            </p>
-        </div>
-        <div class="box">
-            <img decoding="async" src="./assets/images/avatar-03.png" alt="" />
-            <h3>Shady Nabil</h3>
-            <span class="title">Full Stack Developer</span>
-            <div class="rate">
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-                quaerat ducimus
-            </p>
-        </div>
-        <div class="box">
-            <img decoding="async" src="./assets/images/avatar-04.png" alt="" />
-            <h3>Amr Hendawy</h3>
-            <span class="title">Full Stack Developer</span>
-            <div class="rate">
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-                quaerat ducimus
-            </p>
-        </div>
-        <div class="box">
-            <img decoding="async" src="./assets/images/avatar-05.png" alt="" />
-            <h3>Sherief Ashraf</h3>
-            <span class="title">Full Stack Developer</span>
-            <div class="rate">
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="filled fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-                quaerat ducimus
-            </p>
-        </div>
-        <div class="box">
-        <img decoding="async" src="./assets/images/avatar-06.png" alt="" />
-        <h3>Osama Mohamed</h3>
-        <span class="title">Full Stack Developer</span>
-        <div class="rate">
-            <i class="filled fas fa-star"></i>
-            <i class="filled fas fa-star"></i>
-            <i class="filled fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-        </div>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est natus
-            quaerat ducimus
-        </p>
-    </div>
+        }
 </div>
 </div>
 <!-- End Testimonials -->

@@ -1,0 +1,126 @@
+/* Start Events */
+.events {
+    padding: var(--main-padding) 0;
+    position: relative;
+}
+.events .container {
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap;
+}
+.events img {
+    max-width: 450px;
+}
+@media (max-width: 991px) {
+    .events img {
+        display: none;
+    }
+}
+.events .info {
+    flex: 1;
+}
+.events .info .time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; 
+}
+.events .info .time .unit {
+    text-align: center;
+    border: 1px solid #D4D4D4;
+    border-radius: 6px;
+    transition: var(--main-transition);
+}
+.events .info .time .unit:hover,
+.events .info .time .unit:hover span:last-of-type {
+    border-color: var(--main-color-alt);
+}
+.events .info .time .unit span {
+    display: block;
+    transition: var(--main-transition);
+}
+.events .info .time .unit span:first-of-type {
+    color: var(--main-color);
+    font-size: 35px;
+    padding: 15px;
+}
+.events .info .time .unit span:last-of-type {
+    color: #777;
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #D4D4D4;
+}
+.events .info h3 {
+    font-size: 35px;
+    text-align: center;
+    margin: 40px 0 0;
+}
+@media (max-width: 767px) {
+    .events .info h3 {
+        font-size: 25px;
+    }
+}
+.events .info p {
+    margin-top: 40px;
+    text-align: center;
+    line-height: 1.8;
+    color: #666 ;
+}
+.events .subscribe {
+    width: 100%;
+    margin-top: 60px;
+}
+.events .subscribe form {
+    padding: 30px;
+    background-color: var(--background-color);
+    width: fit-content;
+    border-radius: 50px;
+    margin: auto;
+}
+.events .subscribe form input {
+    padding: 15px;
+    border-radius: inherit;
+    border: none;
+    outline: none;
+}
+@media (max-width: 767px) {
+    .events .subscribe form {
+        border-radius: 0;
+        width: 100%;
+    }
+}
+.events .subscribe form input[type='email'] {
+    width: 400px;
+    caret-color: var(--main-color-alt);
+    margin-right: 10px;
+}
+.events .subscribe form input[type='email']::placeholder {
+    transition: opacity var(--main-transition);
+}
+.events .subscribe form input[type='email']:focus::placeholder {
+    opacity: 0;
+}
+@media (max-width: 767px) {
+    .events .subscribe form input[type='email'] {
+        width: 100%;
+        border-radius: 0;
+    }
+}
+.events .subscribe form input[type='submit'] {
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--main-transition);
+}
+.events .subscribe form input[type='submit']:hover {
+    background-color: var(--main-color-alt);
+}
+@media (max-width: 767px) {
+    .events .subscribe form input[type='submit'] {
+        border-radius: 0;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+/* End Events */

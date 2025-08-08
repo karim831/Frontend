@@ -1,33 +1,17 @@
 <!-- Start Skills -->
-<div class="our-skills" id="our-skills">
+<div class="our-skills" id="skills">
     <h2 class="main-title">Our Skills</h2>
     <div class="container">
-        <img src="./assets/images/skills.png" alt="">
+        <img [src]="'./assets/images/'+image" alt="">
         <div class="skills">
-            <div class="skill">
-                <h3>HTML <span>80%</span></h3>
-                <div class="progress">
-                    <span style="width: 80%;"></span>
+            @for (skill of skills; track $index) {
+                <div class="skill">
+                    <h3>{{skill.skill}} <span>{{skill.percentage}}%</span></h3>
+                    <div class="progress">
+                        <span [style]="'width: '+skill.percentage+'%;'"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="skill">
-                <h3>CSS <span>90%</span></h3>
-                <div class="progress">
-                    <span style="width: 90%;"></span>
-                </div>
-            </div>
-            <div class="skill">
-                <h3>JavaScript <span>75%</span></h3>
-                <div class="progress">
-                    <span style="width: 75%;"></span>
-                </div>
-            </div>
-            <div class="skill">
-                <h3>Python <span>88%</span></h3>
-                <div class="progress">
-                    <span style="width: 88%;"></span>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

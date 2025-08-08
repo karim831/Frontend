@@ -11,10 +11,8 @@ export class ScrollToDirective {
   @Input() appScrollTo:string = "";
   @Input() targetRoute:string = "";
   constructor(
-    @Inject(DOCUMENT) private document: Document,
     private scrollService:ScrollService,
     private element:ElementRef,
-    private router:Router
   ) {}
 
   @HostListener('mouseenter')

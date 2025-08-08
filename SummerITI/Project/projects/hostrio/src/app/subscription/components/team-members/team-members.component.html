@@ -1,127 +1,23 @@
  <!-- Start Team Members -->
 <div class="team-members" id="team-members">
-    <h2 class="main-title">Team Members</h2>
+    <h2 class="main-title">{{title}}</h2>
     <div class="container">
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-01.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+        @for (member of members; track $index) {
+            <div class="box">
+                <div class="data">
+                    <img [src]="'./assets/images/'+member.img">
+                    <div class="social">
+                        @for (icon of socialIcons; track $index) {
+                            <a [href]="member.socials[$index]"><i [class]="socialIcons[$index]"></i></a>
+                        }
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>{{member.name}}</h3>
+                    <p>{{member.description}}</p>
                 </div>
             </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-02.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-03.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-04.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-05.png" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-06.png" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-07.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="data">
-                <img src="./assets/images/team-08.jpg" alt="">
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="info">
-                <h3>Name</h3>
-                <p>Simple Short Description</p>
-            </div>
-        </div>
+        }
     </div>
 </div>
 <!-- End Team Members  -->
