@@ -17,8 +17,9 @@ export class DiscountComponent {
   getDiscount(event:Event,name:string,email:string,phone:string,description:string){
     event.preventDefault();
     this.getDiscountService.postDiscount({name,email,phone,description}).subscribe({
-      next: () => {
+      next: (response) => {
         alert('Discount Request Sent');
+        console.log(response);
       },
       error: (error) => {console.log(`Error Happend = > ${error}`);}
     })

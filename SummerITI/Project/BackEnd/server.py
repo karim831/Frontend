@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 import os
+import re
 from datetime import datetime
 
 app = Flask(__name__)
@@ -11,6 +12,33 @@ CORS(app)  # Enable CORS for your Angular app
 SUBSCRIBERS_FILE = 'subscribers.json'
 PRICING_PLANS_FILE = 'pricing-plans.json'
 DISCOUNTS_FILE = 'discounts.json'
+
+def validate_email(email):
+    """Validate email format"""
+    if not email:
+        return False, "Email is required"
+    
+    # Basic email regex pattern
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    
+    if not re.match(email_pattern, email):
+        return False, "Invalid email format"
+    
+    return True, "Valid email"
+
+def validate_phone(phone):
+    """Validate phone number format"""
+    if not phone:
+        return False, "Phone number is required"
+    
+    # Remove any spaces, dashes, or parentheses
+    clean_phone = re.sub(r'[\s\-\(\)]', '', phone)
+    
+    # Check if it contains only digits and optional '+' at the start
+    if not re.match(r'^\+?[0-9]{10,15}$', clean_phone):
+        return False, "Invalid phone number format. Must be 10-15 digits, optionally starting with +"
+    
+    return True, "Valid phone number"
 
 def load_subscribers():
     """Load subscribers from JSON file"""
@@ -76,8 +104,10 @@ def add_subscriber():
         request_data = request.get_json()
         new_email = request_data.get('email')
         
-        if not new_email:
-            return jsonify({'error': 'Email is required'}), 400
+        # Validate email format (same as discounts route)
+        is_valid, message = validate_email(new_email)
+        if not is_valid:
+            return jsonify({'error': message}), 400
         
         # Load current data
         data = load_subscribers()
@@ -152,22 +182,38 @@ def add_discount():
         # Validate required fields
         required_fields = ['name', 'email', 'phone', 'description']
         for field in required_fields:
-            if field not in request_data:
+            if field not in request_data or not request_data[field].strip():
                 return jsonify({'error': f'{field} is required'}), 400
         
-        # Basic email validation
-        email = request_data.get('email')
-        if '@' not in email or '.' not in email:
-            return jsonify({'error': 'Invalid email format'}), 400
+        # Use the same email validation function
+        email = request_data.get('email').strip()
+        is_valid, message = validate_email(email)
+        if not is_valid:
+            return jsonify({'error': message}), 400
+        
+        # Validate phone number
+        phone = request_data.get('phone').strip()
+        is_valid_phone, phone_message = validate_phone(phone)
+        if not is_valid_phone:
+            return jsonify({'error': phone_message}), 400
+        
+        # Validate name (no numbers allowed)
+        name = request_data.get('name').strip()
+        if re.search(r'\d', name):
+            return jsonify({'error': 'Name cannot contain numbers'}), 400
         
         discounts = load_discounts()
         
+        # Check if email already has a discount request
+        if any(d['email'] == email for d in discounts):
+            return jsonify({'error': 'Email already has a discount request'}), 400
+        
         # Create new discount request
         new_discount = {
-            'name': request_data['name'],
-            'email': request_data['email'],
-            'phone': request_data['phone'],
-            'description': request_data['description'],
+            'name': name,
+            'email': email,
+            'phone': phone,
+            'description': request_data['description'].strip(),
             'submittedAt': datetime.now().isoformat(),
             'id': len(discounts) + 1  # Simple ID generation
         }

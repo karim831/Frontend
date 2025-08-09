@@ -64,7 +64,7 @@ export class EventsComponent implements OnInit,OnDestroy{
   subscribe(event:Event,email:string){
     event.preventDefault();
     this.subscribeService.postSubscriper({email: email}).subscribe({
-      next: () => alert(`success registeration`),
+      next: (responce) => {alert(`success registeration`); console.log(responce)},
       error: (error) => console.log(`error',${error}`)
     });
   }
