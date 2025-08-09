@@ -1,9 +1,7 @@
 export interface PricingPlan {
-    id: number;
-    name: string;
-    price: number;
-    period: string;
-    image: string;
-    features: string[];
-    isPopular?: boolean;
+    type:string,
+    img:string,
+    price:number,
+    period:string,
+    infos:string[]
 }

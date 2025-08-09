@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './home/home.module';
 import { SubscriptionModule } from './subscription/subscription.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SubscriptionModule } from './subscription/subscription.module';
     AppRoutingModule,
     HomeModule,
     LayoutModule,
-    SubscriptionModule
+    SubscriptionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

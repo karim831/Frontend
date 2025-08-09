@@ -3,36 +3,26 @@
     <div class="dots dots-up"></div>
     <div class="dots dots-down"></div>
     <h2 class="main-title">
-        Last Events
+        {{title}}
     </h2>
     <div class="container">
-        <img src="./assets/images/events.png" alt="">
+        <img [src]="'./assets/images/' + img">
         <div class="info">
             <div class="time">
-                <div class="unit">
-                    <span>15</span>
-                    <span>Day</span>
-                </div>
-                <div class="unit">
-                    <span>08</span>
-                    <span>Hours</span>
-                </div>
-                <div class="unit">
-                    <span>45</span>
-                    <span>Minutes</span>
-                </div>
-                <div class="unit">
-                    <span>58</span>
-                    <span>Seconds</span>
-                </div>
+                @for (unit of calenderIterator; track $index) {
+                    <div class="unit">
+                        <span>{{calender[unit.toLowerCase()]}}</span>
+                        <span>{{unit}}</span>
+                    </div>
+                }
             </div>
-            <h3>Tech Masters Event 2025</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem blanditiis fuga aperiam recusandae maiores aspernatur at nemo, fugit optio. Tempore provident accusamus id et harum soluta cum voluptatibus asperiores saepe.</p>
+            <h3>{{header}}</h3>
+            <p>{{description}}</p>
         </div>
         <div class="subscribe">
-            <form action="#">
-                <input type="email" name="mail" placeholder="Enter Your Email">
-                <input type="submit" value="Subscribe">
+            <form (submit)="subscribe($event,email.value)">
+                <input type="email" name="mail" placeholder="Enter Your Email" #email>
+                <input type="submit" (click)="subscribe($event,email.value)" value="Subscribe">
             </form>
         </div>
     </div>

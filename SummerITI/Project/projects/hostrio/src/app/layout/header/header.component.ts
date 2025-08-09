@@ -47,22 +47,11 @@ export class HeaderComponent implements OnInit{
       });
 
     this.updateCurrentRoute();
-    this.handleFragment();
   }
 
 
   private updateCurrentRoute() {
     this.currentRoute = this.router.url.split('#')[0];
-  }
-
-  private handleFragment() {
-    this.route.fragment.subscribe((fragment) => {
-      if (fragment) {
-        setTimeout(() => {
-          document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    });
   }
 
   onLogoClick() {
@@ -74,11 +63,17 @@ export class HeaderComponent implements OnInit{
       this.router.navigate([item.route]);
     } else if (item.fragment) {
       this.router.navigate([this.currentRoute], { fragment: item.fragment });
+      setTimeout(() => {
+        document.getElementById(item.fragment)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
   }
 
   onOtherLinkClick(link: any) {
     this.router.navigate([this.currentRoute], { fragment: link.fragment });
+    setTimeout(() => {
+        document.getElementById(link.fragment)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
   }
 
 

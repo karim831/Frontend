@@ -5,7 +5,6 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,7 +18,6 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
   ]
 })
 export class HomeModule { }
