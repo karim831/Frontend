@@ -1,0 +1,41 @@
+[
+  {
+    "type": "Basic",
+    "img": "hosting-basic.png",
+    "price": 9.99,
+    "period": "Per Month",
+    "infos": [
+      "Up to 5 projects",
+      "Basic support",
+      "5GB storage",
+      "Standard features"
+    ]
+  },
+  {
+    "type": "Pro",
+    "img": "hosting-advanced.png",
+    "price": 19.99,
+    "period": "Per Year",
+    "infos": [
+      "Unlimited projects",
+      "Priority support",
+      "50GB storage",
+      "Advanced features",
+      "Team collaboration"
+    ]
+  },
+  {
+    "type": "Enterprise",
+    "img": "hosting-professional.png",
+    "price": 49.99,
+    "period": "Per 2 Years",
+    "infos": [
+      "Unlimited everything",
+      "24/7 dedicated support",
+      "500GB storage",
+      "Custom integrations",
+      "Advanced analytics",
+      "White-label options"
+    ]
+  }
+]

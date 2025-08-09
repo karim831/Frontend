@@ -1,0 +1,19 @@
+<!-- Start Features -->
+<div class="features" id="features">
+    <h2 class="main-title">{{title}}</h2>
+    <div class="container">
+        @for (feature of features; track $index) {
+            <div class="box">
+                <div class="image">
+                    <img [src]="'./assets/images/' + feature.image" alt="">
+                </div>
+                <div class="info">
+                    <h3>{{feature.info.type}}</h3>
+                    <p>{{feature.info.description}}</p>
+                    <a style="cursor: pointer;">More</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- End Features -->

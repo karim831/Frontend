@@ -1,0 +1,45 @@
+/* Start Testimonials */
+.testimonials {
+    position: relative;
+    padding: var(--main-padding) 0; 
+    background-color: var(--background-color);
+}
+.testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px
+}
+.testimonials .box {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.134);
+}
+.testimonials .box img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    right: 0;
+    top: -50px;
+    border-radius: 50%;
+    border: 10px solid var(--background-color);
+}
+.testimonials .box h3 {
+    margin: 0 0 10px;
+    color: var(--main-color);
+}
+.testimonials .box .title {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+.testimonials .box i.filled {
+    color: #ffc107;
+}
+.testimonials .box p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #777;
+}
+/* End Testimonials */

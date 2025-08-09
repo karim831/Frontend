@@ -1,0 +1,38 @@
+<header>
+  <div class="container">
+    
+    <a class="logo" (click)="onLogoClick()" style="cursor: pointer;">Hostrio</a>
+    
+    <ul class="list-nav">
+      @for (item of currentNavItems; track $index) {
+        <li>
+          <a (click)="onNavClick(item)" style="cursor: pointer;">
+            {{ item.text }}
+          </a>
+        </li>
+      }
+
+      @if (showOtherLinks) {
+        <li>
+          <a style="cursor: pointer;">Other Links</a>
+          <!-- Start Megamenu -->
+          <div class="mega-menu">
+            <div class="image">
+              <img decoding="async" src="./assets/images/mega-menu.png"/>
+            </div>
+            <ul class="links">
+              @for (link of otherLinks; track $index) {
+                <li>
+                  <a (click)="onOtherLinkClick(link)" style="cursor: pointer;">
+                    <i [class]="link.icon"></i>{{ link.text }}
+                  </a>
+                </li>
+              }
+            </ul>
+          </div>
+          <!-- End Megamenu -->
+        </li>
+      }
+    </ul>
+  </div>
+</header>

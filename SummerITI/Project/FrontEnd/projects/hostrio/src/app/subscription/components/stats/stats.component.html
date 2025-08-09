@@ -1,0 +1,14 @@
+<!-- Start stats -->
+<div class="stats" id="stats">
+    <h2>{{title}}</h2>
+    <div class="container">
+        @for (stat of stats; track $index) {
+            <div class="box">
+                <i [class]="stat.icon"></i>
+                <span class="number">{{stat.number}}</span>
+                <span class="text">{{stat.stat}}</span>
+            </div>
+        }
+    </div>
+</div>
+<!-- End stats -->

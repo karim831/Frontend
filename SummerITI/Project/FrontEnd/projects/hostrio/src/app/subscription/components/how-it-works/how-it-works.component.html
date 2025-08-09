@@ -1,0 +1,19 @@
+<!-- Start How It Works -->
+<div class="work-steps" id="work-steps">
+    <h2 class="main-title">{{title}}</h2>
+    <div class="container">
+        <img [src]="'./assets/images/'+image">
+        <div class="works">
+            @for (work of works; track $index) {
+                <div class="box">
+                    <img [src]="'./assets/images/'+work.image">
+                    <div class="info">
+                        <h3>{{work.title}}</h3>
+                        <p>{{work.description}}</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- End How It Works -->

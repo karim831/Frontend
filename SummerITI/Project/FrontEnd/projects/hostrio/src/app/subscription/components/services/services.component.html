@@ -1,0 +1,18 @@
+<!-- Start Services -->
+<div class="services" id="services">
+    <h2 class="main-title">
+        {{title}}
+    </h2>
+    <div class="container">
+        @for (service of services; track $index) {
+            <div class="box">
+                <i [class]="service.icon"></i>
+                <h3>{{service.service}}</h3>
+                <div class="info">
+                    <a>Details</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- End Services -->

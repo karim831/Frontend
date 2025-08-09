@@ -1,0 +1,23 @@
+ <!-- Start Team Members -->
+<div class="team-members" id="team-members">
+    <h2 class="main-title">{{title}}</h2>
+    <div class="container">
+        @for (member of members; track $index) {
+            <div class="box">
+                <div class="data">
+                    <img [src]="'./assets/images/'+member.img">
+                    <div class="social">
+                        @for (icon of socialIcons; track $index) {
+                            <a [href]="member.socials[$index]"><i [class]="socialIcons[$index]"></i></a>
+                        }
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>{{member.name}}</h3>
+                    <p>{{member.description}}</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- End Team Members  -->

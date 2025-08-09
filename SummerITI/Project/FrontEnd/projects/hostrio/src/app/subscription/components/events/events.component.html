@@ -1,0 +1,30 @@
+<!-- Start Events -->
+<div class="events" id="events">
+    <div class="dots dots-up"></div>
+    <div class="dots dots-down"></div>
+    <h2 class="main-title">
+        {{title}}
+    </h2>
+    <div class="container">
+        <img [src]="'./assets/images/' + img">
+        <div class="info">
+            <div class="time">
+                @for (unit of calenderIterator; track $index) {
+                    <div class="unit">
+                        <span>{{calender[unit.toLowerCase()]}}</span>
+                        <span>{{unit}}</span>
+                    </div>
+                }
+            </div>
+            <h3>{{header}}</h3>
+            <p>{{description}}</p>
+        </div>
+        <div class="subscribe">
+            <form (submit)="subscribe($event,email.value)">
+                <input type="email" name="mail" placeholder="Enter Your Email" #email>
+                <input type="submit" (click)="subscribe($event,email.value)" value="Subscribe">
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Events -->
